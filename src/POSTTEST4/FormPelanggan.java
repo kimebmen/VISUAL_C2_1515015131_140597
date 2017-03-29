@@ -189,6 +189,11 @@ public class FormPelanggan extends javax.swing.JFrame {
         tfTotalTarif.setFont(new java.awt.Font("Roboto", 3, 24)); // NOI18N
         tfTotalTarif.setForeground(new java.awt.Color(255, 0, 0));
         tfTotalTarif.setText("Rp 0");
+        tfTotalTarif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTotalTarifActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -588,7 +593,8 @@ public class FormPelanggan extends javax.swing.JFrame {
                         + " Nama\t: "+Nama+
                         "\n No.HP\t: "+NoHP+
                         "\n Berat\t: "+Berat+" Kg"+
-                        "\n Diskon\t: "+TotalDiskon+
+                        "\n Diskon\t: "+Diskonnya+" %"+
+                        "\n Potongan\t: Rp "+TotalDiskon+
                         "\n Jenis Jasa\t: "+Jasa+
                         "\n Total\t: Rp "+Total+
                         "\n======================================================="+
@@ -650,6 +656,10 @@ public class FormPelanggan extends javax.swing.JFrame {
         bProses.setBackground(Color.WHITE);
         bProses.setForeground(Color.BLACK);
     }//GEN-LAST:event_bProsesMouseExited
+
+    private void tfTotalTarifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalTarifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTotalTarifActionPerformed
 
     /**
      * @param args the command line arguments
