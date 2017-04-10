@@ -49,7 +49,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jPanel2" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jPanel2" alignment="0" pref="495" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" pref="495" max="32767" attributes="0"/>
                       <Component id="header" max="32767" attributes="0"/>
                   </Group>
@@ -161,10 +161,7 @@
                                       <Component id="txtHarga" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtJudul" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="comboPenulis" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="88" pref="88" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="comboPenulis" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -191,12 +188,14 @@
                           <Component id="txtHarga" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_Simpan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btn_Update" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_Hapus" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_Ulangi" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_Keluar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn_Simpan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_Ulangi" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_Keluar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -298,6 +297,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="cari">
               <Events>
+                <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="cariCaretUpdate"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cariKeyTyped"/>
               </Events>
             </Component>
