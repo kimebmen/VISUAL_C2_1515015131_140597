@@ -44,16 +44,14 @@ public class FormDataBuku extends javax.swing.JFrame {
             rss = stt.executeQuery(sql); //untuk mengeksekusi query
             //kondisi untuk menampilkan hasil dan nilai pengembaliannya
             if(rss.next()) 
-                return true; 
+                return true; //mengembalikan nilai true
             else 
-                return false;
+                return false;//mengembalikan nilai false
         } catch (SQLException e) {
             System.out.print(e.getMessage());
             return false;
         }
     }
-
-    
     private void TampilData(){ //fungsi untuk menampilkan data
         try{
             String sql = "SELECT * FROM buku"; //mendeklarasikan variabel sql dengan query untuk menampilkan semua data pada tabel buku
@@ -543,21 +541,25 @@ public class FormDataBuku extends javax.swing.JFrame {
         String judul = txtJudul.getText();//mendeklarasikan judul sesuai dengan texfield txtJudul
         String penulis = comboPenulis.getSelectedItem().toString();//mendeklarasikan penulis sesuai dengan combobox combopenulis
         String harga = txtHarga.getText();//mendeklarasikan harga sesuai dengan texfield txtHarga
+        String hargatabel = jTable1.getValueAt(baris, 3).toString();
         
         int ok=JOptionPane.showConfirmDialog(this,"Update Data Yang Dipilih?","Confirmation Update",JOptionPane.YES_NO_OPTION);
         try {
             if(ok==0){
-                
-                if(validasi(judul,penulis)){ //penyeleksian kondisi yang diambil dari fungsi validasi dengan parameter judul dan penulis
-                    JOptionPane.showMessageDialog(this, "Judul Sudah ada Boss");
+                if(validasi(judul,penulis)){//penyeleksian kondisi yang diambil dari fungsi validasi dengan parameter judul dan penulis
+                     
+                    if(harga.equals(hargatabel)){//jika harga di texfield txtHarga sama dengan harga di tabel
+                        JOptionPane.showMessageDialog(this, "Judul Sudah ada Boss");
+                    }   
+                    else{// jika tidak 
+                        UbahData(id,judul,penulis,harga); //menjalankan fungsi UbahData sesuai dengan parameter id, judul, penulis, harga
+                        InitTable();//menampilkan ulang model dari table buku
+                        TampilData();//untuk menampilkan ulang fungsi TampilData
+                        JOptionPane.showMessageDialog(this, "Berhasil Simpan Data");
+                        }
                 }
-                else{// jika tidak 
-                    UbahData(id,judul,penulis,harga); //menjalankan fungsi UbahData sesuai dengan parameter id, judul, penulis, harga
-                    InitTable();//menampilkan ulang model dari table buku
-                    TampilData();//untuk menampilkan ulang fungsi TampilData
-                    JOptionPane.showMessageDialog(this, "Berhasil Simpan Data");
-                }
-            }
+                    }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "error");
         }
