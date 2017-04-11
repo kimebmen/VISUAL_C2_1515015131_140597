@@ -558,6 +558,12 @@ public class FormDataBuku extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Berhasil Simpan Data");
                         }
                 }
+                else{
+                        UbahData(id,judul,penulis,harga); //menjalankan fungsi UbahData sesuai dengan parameter id, judul, penulis, harga
+                        InitTable();//menampilkan ulang model dari table buku
+                        TampilData();//untuk menampilkan ulang fungsi TampilData
+                        JOptionPane.showMessageDialog(this, "Berhasil Simpan Data");
+                }
                     }
             
         } catch (Exception e) {
