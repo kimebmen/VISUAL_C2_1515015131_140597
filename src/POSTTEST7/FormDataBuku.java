@@ -547,12 +547,16 @@ public class FormDataBuku extends javax.swing.JFrame {
         int ok=JOptionPane.showConfirmDialog(this,"Update Data Yang Dipilih?","Confirmation Update",JOptionPane.YES_NO_OPTION);
         try {
             if(ok==0){
-                if (UbahData(id,judul,penulis,harga)) //Kondisi jika menjalankan fungsi UbahData dengan parameter id, judul, penulis, dan harga
-                    JOptionPane.showMessageDialog(null, "Berhasil Ubah Data");
-                else 
-                    JOptionPane.showMessageDialog(null, "Gagal Ubah Data");
-                    InitTable();//menjalankan fungsi InitTable
-                    TampilData();//menjalankan TampilData
+                
+                if(validasi(judul,penulis)){ //penyeleksian kondisi yang diambil dari fungsi validasi dengan parameter judul dan penulis
+                    JOptionPane.showMessageDialog(this, "Judul Sudah ada Boss");
+                }
+                else{// jika tidak 
+                    UbahData(id,judul,penulis,harga); //menjalankan fungsi UbahData sesuai dengan parameter id, judul, penulis, harga
+                    InitTable();//menampilkan ulang model dari table buku
+                    TampilData();//untuk menampilkan ulang fungsi TampilData
+                    JOptionPane.showMessageDialog(this, "Berhasil Simpan Data");
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "error");
